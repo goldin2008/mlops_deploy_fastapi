@@ -1,10 +1,33 @@
 Working in a command line environment is recommended for ease of use with git and dvc. If on Windows, WSL1 or 2 is recommended.
 
+https://github.com/ibrahim-sheriff/Deploying-a-ML-Model-on-Heroku-with-FastAPI
+
+https://github.com/GuilhermeBrejeiro/deploy_ML_model_Heroku_FastAPI
+
+https://github.com/nicholas-dinicola/CI-CD-API-ML_App
+
+https://github.com/ashrielbrian/MLDevOps_census
+
+https://github.com/ximenesfel/udacity_heroku_fastAPI
+
+https://github.com/yoshijan/udacity_fastapi
+
+https://github.com/MusHusKat/fastapi_deployment
+
+https://github.com/nicolaswsp/Deploying-a-Machine-Learning-Model-on-Heroku-with-FastAPI/blob/master/main.py
+
+https://github.com/soni-ratnesh/Deploying-a-Machine-Learning-Model-on-Heroku-with-FastAPI/blob/master/main.py
+
+https://github.com/VineetKT/ML_fastapi_on_Heroku_CI-CD/blob/main/main.py
+
 # Environment Set up
 * Download and install conda if you don’t have it already.
     * Use the supplied requirements file to create a new environment, or
     * conda create -n [envname] "python=3.8" scikit-learn dvc pandas numpy pytest jupyter jupyterlab fastapi uvicorn -c conda-forge
     * Install git either through conda (“conda install git”) or through your CLI, e.g. sudo apt-get git.
+
+`conda env create -f environment.yml`
+`conda activate nyc_airbnb_dev`
 
 ## Repositories
 
@@ -26,7 +49,7 @@ To use your new S3 bucket from the AWS CLI you will need to create an IAM user w
 * Give the user a name and select **Programmatic access**.
 * In the permissions selector, search for S3 and give it **AmazonS3FullAccess**
 * Tags are optional and can be skipped.
-* After reviewing your choices, click create user. 
+* After reviewing your choices, click create user.
 * Configure your AWS CLI to use the Access key ID and Secret Access key.
 
 ## GitHub Actions
@@ -73,3 +96,25 @@ To use your new S3 bucket from the AWS CLI you will need to create an IAM user w
 * Set up DVC on Heroku using the instructions contained in the starter directory.
 * Set up access to AWS on Heroku, if using the CLI: `heroku config:set AWS_ACCESS_KEY_ID=xxx AWS_SECRET_ACCESS_KEY=yyy`
 * Write a script that uses the requests module to do one POST on your live API.
+
+## Resources
+
+- Data and Modeling
+  - [An article about the data and its ML application](https://medium.com/analytics-vidhya/machine-learning-application-census-income-prediction-868227debf12)
+- ML Testing
+  - [Made with ML Testing Lesson](https://madewithml.com/courses/mlops/testing/)
+  - [Jeremy Jordan Article](https://www.jeremyjordan.me/testing-ml/)
+  - [Eugeneyan Article about ML Testing](https://eugeneyan.com/writing/testing-ml/)
+  - [Eugeneyan Article about Python Automation and Collaboration](https://eugeneyan.com/writing/setting-up-python-project-for-automation-and-collaboration/)
+  - [mCoding video for automated testing](https://www.youtube.com/watch?v=DhUpxWjOhME)
+- FastAPI
+  - [Made with ML API Lesson](https://madewithml.com/courses/mlops/api/)
+  - [FastAPI Tutorial](https://fastapi.tiangolo.com/tutorial/)
+- Github Actions
+  - [Made with ML CI/CD Lesson](https://madewithml.com/courses/mlops/cicd/)
+  - [DVC with Github Actions](https://github.com/iterative/setup-dvc)
+  - [AWS Credentials with Github Actions #1](https://github.com/marketplace/actions/configure-aws-credentials-action-for-github-actions#sample-iam-role-cloudformation-template)
+  - [AWS Credentials with Github Actions #2](https://stackoverflow.com/questions/58643905/how-aws-credentials-works-at-github-actions)
+- Heroku
+  - [Procfile Tutorial](https://devcenter.heroku.com/articles/procfile)
+  - [Integrate DVC with Heroku](https://ankane.org/dvc-on-heroku)
