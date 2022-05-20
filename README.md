@@ -17,7 +17,6 @@ https://github.com/MusHusKat/fastapi_deployment
 https://github.com/nicolaswsp/Deploying-a-Machine-Learning-Model-on-Heroku-with-FastAPI/blob/master/main.py
 
 https://github.com/soni-ratnesh/Deploying-a-Machine-Learning-Model-on-Heroku-with-FastAPI/blob/master/main.py
-
 https://github.com/VineetKT/ML_fastapi_on_Heroku_CI-CD/blob/main/main.py
 
 # Environment Set up
@@ -27,6 +26,7 @@ https://github.com/VineetKT/ML_fastapi_on_Heroku_CI-CD/blob/main/main.py
     * Install git either through conda (“conda install git”) or through your CLI, e.g. sudo apt-get git.
 
 `conda env create -f environment.yml`
+
 `conda activate nyc_airbnb_dev`
 
 ## Repositories
