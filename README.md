@@ -30,6 +30,10 @@ https://github.com/VineetKT/ML_fastapi_on_Heroku_CI-CD/blob/main/main.py
 
 `conda activate fastapi`
 
+List all packages in the current environment:
+
+`conda list --export > package-list.txt`
+
 ## Repositories
 
 * Create a directory for the project and initialize Git and DVC.
