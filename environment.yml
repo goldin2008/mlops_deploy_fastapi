@@ -1,0 +1,20 @@
+name: fastapi
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - python==3.8
+  - jupyterlab=3.0.10
+  - pandas=1.2.3
+  - git=2.30.2
+  - pip=20.3.3
+  - fastapi==0.63.0
+  - numpy
+  - pandas
+  - scikit-learn
+  - pytest
+  - requests
+  - uvicorn
+  - gunicorn
+  - dvc
+  - jupyter
