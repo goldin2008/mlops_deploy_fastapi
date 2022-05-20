@@ -32,6 +32,8 @@ https://github.com/VineetKT/ML_fastapi_on_Heroku_CI-CD/blob/main/main.py
 
 List all packages in the current environment:
 
+`conda list -n myenv`
+
 `conda list --export > package-list.txt`
 
 ## Repositories
