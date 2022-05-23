@@ -1,9 +1,8 @@
-python==3.8
-numpy
-pandas
-scikit-learn
-pytest
-requests
-fastapi==0.63.0
-uvicorn
-gunicorn
+numpy==1.22
+pandas==1.2
+scikit-learn==1.1
+pytest==7.1
+requests==2.27
+fastapi==0.63
+uvicorn==0.17
+gunicorn==20.1
