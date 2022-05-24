@@ -42,6 +42,10 @@ Listing all user owned buckets
 
 `aws s3 ls s3://mybucket`
 
+Push to Heroku
+
+https://code2care.org/howto/fix-command-not-found-brew-bash-zsh-on-macos-terminal
+
 ## Repositories
 
 * Create a directory for the project and initialize Git and DVC.
