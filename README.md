@@ -1,25 +1,5 @@
 Working in a command line environment is recommended for ease of use with git and dvc. If on Windows, WSL1 or 2 is recommended.
 
-https://github.com/ibrahim-sheriff/Deploying-a-ML-Model-on-Heroku-with-FastAPI
-
-https://github.com/GuilhermeBrejeiro/deploy_ML_model_Heroku_FastAPI
-
-https://github.com/nicholas-dinicola/CI-CD-API-ML_App
-
-https://github.com/ashrielbrian/MLDevOps_census
-
-https://github.com/ximenesfel/udacity_heroku_fastAPI
-
-https://github.com/yoshijan/udacity_fastapi
-
-https://github.com/MusHusKat/fastapi_deployment
-
-https://github.com/nicolaswsp/Deploying-a-Machine-Learning-Model-on-Heroku-with-FastAPI/blob/master/main.py
-
-https://github.com/soni-ratnesh/Deploying-a-Machine-Learning-Model-on-Heroku-with-FastAPI/blob/master/main.py
-
-https://github.com/VineetKT/ML_fastapi_on_Heroku_CI-CD/blob/main/main.py
-
 # Environment Set up
 * Download and install conda if you don’t have it already.
     * Use the supplied requirements file to create a new environment, or
