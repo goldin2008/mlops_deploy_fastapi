@@ -36,6 +36,12 @@ List all packages in the current environment:
 
 `conda list --export > package-list.txt`
 
+Listing all user owned buckets
+
+`aws s3 ls`
+
+`aws s3 ls s3://mybucket`
+
 ## Repositories
 
 * Create a directory for the project and initialize Git and DVC.
