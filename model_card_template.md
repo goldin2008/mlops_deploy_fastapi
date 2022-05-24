@@ -1,4 +1,5 @@
 # Model Card
+The predictive model is used to predict salaries using a classification model trained with logistic regression on publicly available Census Bureau data.
 
 For additional information see the Model Card paper: https://arxiv.org/pdf/1810.03993.pdf
 
