@@ -6,7 +6,7 @@ Working in a command line environment is recommended for ease of use with git an
     * conda create -n [envname] "python=3.8" scikit-learn dvc pandas numpy pytest jupyter jupyterlab fastapi uvicorn -c conda-forge
     * Install git either through conda (“conda install git”) or through your CLI, e.g. sudo apt-get git.
 
-```shell
+```bash
 conda env create -f environment.yml
 conda activate fastapi
 ```
@@ -18,13 +18,13 @@ conda list --export > package-list.txt
 ```
 
 Listing all user owned buckets
-```
+```bash
 aws s3 ls
 aws s3 ls s3://mybucket
 ```
 
 DVC
-```shell
+```bash
 dvc remote add -d localremote ../local_remote
 dvc remote list
 head .dvc/config
