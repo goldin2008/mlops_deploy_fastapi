@@ -26,11 +26,9 @@ DVC
 ```shell
 `dvc remote add -d localremote ../local_remote`
 `dvc remote list`
-
 `head .dvc/config`
 
 `dvc remote add -d s3remote s3://mlops-2022`
-
 `head .dvc/config`
 
 `dvc push --remote s3remote`
