@@ -1,6 +1,6 @@
 [core]
-    remote = driveremote
+    remote = s3remote
 ['remote "localremote"']
     url = ../../local_remote
-['remote "driveremote"']
-    url = gdrive://15NsmnPetSUUILULI67di9gaL9y0QEG6S
+['remote "s3remote"']
+    url = s3://mlops-2022

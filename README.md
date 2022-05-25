@@ -22,6 +22,17 @@ Listing all user owned buckets
 
 `aws s3 ls s3://mybucket`
 
+DVC
+
+`dvc remote add -d localremote ../local_remote`
+
+`dvc remote list`
+
+`head .dvc/config`
+
+`dvc remote add -d s3remote s3://mlops-2022`
+
+
 Push to Heroku
 
 https://code2care.org/howto/fix-command-not-found-brew-bash-zsh-on-macos-terminal
