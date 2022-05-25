@@ -25,9 +25,6 @@ Listing all user owned buckets
 DVC
 ```shell
 `dvc remote add -d localremote ../local_remote`
-
-```
-
 `dvc remote list`
 
 `head .dvc/config`
@@ -37,8 +34,7 @@ DVC
 `head .dvc/config`
 
 `dvc push --remote s3remote`
-
-
+```
 
 Push to Heroku
 
