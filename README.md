@@ -7,14 +7,14 @@ Working in a command line environment is recommended for ease of use with git an
     * Install git either through conda (“conda install git”) or through your CLI, e.g. sudo apt-get git.
 
 ```shell
-`conda env create -f environment.yml`
-`conda activate fastapi`
+conda env create -f environment.yml
+conda activate fastapi
 ```
 
 List all packages in the current environment:
 ```shell
-`conda list -n myenv`
-`conda list --export > package-list.txt`
+conda list -n myenv
+conda list --export > package-list.txt
 ```
 
 Listing all user owned buckets
@@ -25,14 +25,14 @@ aws s3 ls s3://mybucket
 
 DVC
 ```shell
-`dvc remote add -d localremote ../local_remote`
-`dvc remote list`
-`head .dvc/config`
+dvc remote add -d localremote ../local_remote
+dvc remote list
+head .dvc/config
 
-`dvc remote add -d s3remote s3://mlops-2022`
-`head .dvc/config`
+dvc remote add -d s3remote s3://mlops-2022
+head .dvc/config
 
-`dvc push --remote s3remote`
+dvc push --remote s3remote
 ```
 
 Push to Heroku
