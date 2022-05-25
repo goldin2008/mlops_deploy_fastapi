@@ -18,7 +18,7 @@ List all packages in the current environment:
 ```
 
 Listing all user owned buckets
-```shell
+```
 aws s3 ls
 aws s3 ls s3://mybucket
 ```
