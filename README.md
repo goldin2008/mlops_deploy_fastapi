@@ -12,7 +12,7 @@ conda activate fastapi
 ```
 
 List all packages in the current environment:
-```shell
+```bash
 conda list -n myenv
 conda list --export > package-list.txt
 ```
