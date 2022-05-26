@@ -1,6 +1,0 @@
-[core]
-    remote = s3remote
-['remote "localremote"']
-    url = ../../local_remote
-['remote "s3remote"']
-    url = s3://mlops-2022
