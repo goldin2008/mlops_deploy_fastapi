@@ -42,10 +42,12 @@ Push to Heroku
 https://code2care.org/howto/fix-command-not-found-brew-bash-zsh-on-macos-terminal
 
 ## Repositories
-
-* Create a directory for the project and initialize Git and DVC.
-   * As you work on the code, continually commit changes. Trained models you want to keep must be committed to DVC.
-* Connect your local Git repository to GitHub.
+* Create a directory for the project and initialize git and dvc.
+    * As you work on the code, continually commit changes. Generated models you want to keep must be committed to dvc.
+* Connect your local git repo to GitHub.
+* Setup GitHub Actions on your repo. You can use one of the pre-made GitHub Actions if at a minimum it runs pytest and flake8 on push and requires both to pass without error.
+    * Make sure you set up the GitHub Action to have the same version of Python as you used in development.
+* Set up a remote repository for dvc.
 
 ## Set up S3
 
