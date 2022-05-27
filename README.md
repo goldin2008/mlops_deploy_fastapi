@@ -50,7 +50,6 @@ https://code2care.org/howto/fix-command-not-found-brew-bash-zsh-on-macos-termina
 * Set up a remote repository for dvc.
 
 ## Set up S3
-
 * In your CLI environment install the<a href="https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-install.html" target="_blank"> AWS CLI tool</a>.
 * In the navigation bar in the Udacity classroom select **Open AWS Gateway** and then click **Open AWS Console**. You will not need the AWS Access Key ID or Secret Access Key provided here.
 * From the Services drop down select S3 and then click Create bucket.
@@ -67,14 +66,12 @@ To use your new S3 bucket from the AWS CLI you will need to create an IAM user w
 * Configure your AWS CLI to use the Access key ID and Secret Access key.
 
 ## GitHub Actions
-
 * Setup GitHub Actions on your repository. You can use one of the pre-made GitHub Actions if at a minimum it runs pytest and flake8 on push and requires both to pass without error.
    * Make sure you set up the GitHub Action to have the same version of Python as you used in development.
 * Add your <a href="https://github.com/marketplace/actions/configure-aws-credentials-action-for-github-actions" target="_blank">AWS credentials to the Action</a>.
 * Set up <a href="https://github.com/iterative/setup-dvc" target="_blank">DVC in the action</a> and specify a command to `dvc pull`.
 
 ## Data
-
 * Download census.csv from the data folder in the starter repository.
    * Information on the dataset can be found <a href="https://archive.ics.uci.edu/ml/datasets/census+income" target="_blank">here</a>.
 * Create a remote DVC remote pointing to your S3 bucket and commit the data.
@@ -83,7 +80,6 @@ To use your new S3 bucket from the AWS CLI you will need to create an IAM user w
 * Commit this modified data to DVC under a new name (we often want to keep the raw data untouched but then can keep updating the cooked version).
 
 ## Model
-
 * Using the starter code, write a machine learning model that trains on the clean data and saves the model. Complete any function that has been started.
 * Write unit tests for at least 3 functions in the model code.
 * Write a function that outputs the performance of the model on slices of the data.
@@ -91,7 +87,6 @@ To use your new S3 bucket from the AWS CLI you will need to create an IAM user w
 * Write a model card using the provided template.
 
 ## API Creation
-
 * Create a RESTful API using FastAPI this must implement:
    * GET on the root giving a welcome message.
    * POST that does model inference.
@@ -101,7 +96,6 @@ To use your new S3 bucket from the AWS CLI you will need to create an IAM user w
 * Write 3 unit tests to test the API (one for the GET and two for POST, one that tests each prediction).
 
 ## API Deployment
-
 * Create a free Heroku account (for the next steps you can either use the web GUI or download the Heroku CLI).
 * Create a new app and have it deployed from your GitHub repository.
    * Enable automatic deployments that only deploy if your continuous integration passes.
@@ -110,25 +104,3 @@ To use your new S3 bucket from the AWS CLI you will need to create an IAM user w
 * Set up DVC on Heroku using the instructions contained in the starter directory.
 * Set up access to AWS on Heroku, if using the CLI: `heroku config:set AWS_ACCESS_KEY_ID=xxx AWS_SECRET_ACCESS_KEY=yyy`
 * Write a script that uses the requests module to do one POST on your live API.
-
-## Resources
-
-- Data and Modeling
-  - [An article about the data and its ML application](https://medium.com/analytics-vidhya/machine-learning-application-census-income-prediction-868227debf12)
-- ML Testing
-  - [Made with ML Testing Lesson](https://madewithml.com/courses/mlops/testing/)
-  - [Jeremy Jordan Article](https://www.jeremyjordan.me/testing-ml/)
-  - [Eugeneyan Article about ML Testing](https://eugeneyan.com/writing/testing-ml/)
-  - [Eugeneyan Article about Python Automation and Collaboration](https://eugeneyan.com/writing/setting-up-python-project-for-automation-and-collaboration/)
-  - [mCoding video for automated testing](https://www.youtube.com/watch?v=DhUpxWjOhME)
-- FastAPI
-  - [Made with ML API Lesson](https://madewithml.com/courses/mlops/api/)
-  - [FastAPI Tutorial](https://fastapi.tiangolo.com/tutorial/)
-- Github Actions
-  - [Made with ML CI/CD Lesson](https://madewithml.com/courses/mlops/cicd/)
-  - [DVC with Github Actions](https://github.com/iterative/setup-dvc)
-  - [AWS Credentials with Github Actions #1](https://github.com/marketplace/actions/configure-aws-credentials-action-for-github-actions#sample-iam-role-cloudformation-template)
-  - [AWS Credentials with Github Actions #2](https://stackoverflow.com/questions/58643905/how-aws-credentials-works-at-github-actions)
-- Heroku
-  - [Procfile Tutorial](https://devcenter.heroku.com/articles/procfile)
-  - [Integrate DVC with Heroku](https://ankane.org/dvc-on-heroku)
