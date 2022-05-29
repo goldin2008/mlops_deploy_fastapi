@@ -67,9 +67,9 @@ async def get_items():
 # Create the POST endpoint with path '/predict'
 @app.post("/predict")
 async def inference(input_data: ModelInput):
-    model = joblib.load("model/trainedmodel.joblib")
-    encoder = joblib.load("model/encoder.joblib")
-    lb = joblib.load("model/lb.joblib")
+    model = joblib.load("./model/trainedmodel.joblib")
+    encoder = joblib.load("./model/encoder.joblib")
+    lb = joblib.load("./model/lb.joblib")
 
     cat_features = [
     "workclass",
