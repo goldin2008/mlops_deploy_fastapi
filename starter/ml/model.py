@@ -1,5 +1,13 @@
 from sklearn.metrics import fbeta_score, precision_score, recall_score
 
+import logging
+from numpy import mean
+from numpy import std
+from sklearn.ensemble import RandomForestClassifier
+from sklearn.model_selection import StratifiedKFold
+from sklearn.model_selection import cross_val_score
+
+from .data import process_data
 
 # Optional: implement hyperparameter tuning.
 def train_model(X_train, y_train):
@@ -17,8 +25,12 @@ def train_model(X_train, y_train):
     model
         Trained machine learning model.
     """
-
-    pass
+    cv = StratifiedKFold(n_splits=5, shuffle=True, random_state=42)
+    model = RandomForestClassifier(n_estimators=10)
+    model.fit(X_train, y_train)
+    scores = cross_val_score(model, X_train, y_train, scoring='accuracy',
+                             cv=cv, n_jobs=-1)
+    return model
 
 
 def compute_model_metrics(y, preds):
@@ -57,4 +69,5 @@ def inference(model, X):
     preds : np.array
         Predictions from the model.
     """
-    pass
+    y_pred = model.predict(X)
+    return y_pred
