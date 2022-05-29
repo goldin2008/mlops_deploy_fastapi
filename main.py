@@ -7,7 +7,7 @@ import uvicorn
 from fastapi import FastAPI, File, UploadFile, HTTPException
 
 # Import the PyCaret Regression module
-import pycaret.regression as pycr
+# import pycaret.regression as pycr
 
 from schema import ModelInput
 from pandas import DataFrame
