@@ -1,6 +1,6 @@
 # Put the code for your API here.
 import os
-import yaml
+# import yaml
 
 # Import Uvicorn & the necessary modules from FastAPI
 import uvicorn
@@ -22,10 +22,10 @@ if "DYNO" in os.environ and os.path.isdir(".dvc"):
         exit("dvc pull failed")
     os.system("rm -r .dvc .apt/usr/lib/dvc")
 
-with open('config.yml') as f:
-    config = yaml.load(f)
+# with open('config.yml') as f:
+#     config = yaml.load(f)
 
-output_model_path = os.path.join(config['model']['filepath'])
+# output_model_path = os.path.join(config['model']['filepath'])
 
 # Initialize the FastAPI application
 app = FastAPI()

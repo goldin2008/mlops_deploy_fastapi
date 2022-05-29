@@ -6,13 +6,13 @@ import pandas as pd
 import logging
 import pytest
 import joblib
-import yaml
+# import yaml
 import starter.ml.data
 import starter.ml.model
 import starter.train_model
 
-with open('config.yml') as f:
-    config = yaml.load(f)
+# with open('config.yml') as f:
+#     config = yaml.load(f)
 
 @pytest.fixture
 def test_import_data(path):
