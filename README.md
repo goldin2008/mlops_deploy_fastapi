@@ -23,7 +23,7 @@ aws s3 ls
 aws s3 ls s3://mybucket
 ```
 
-DVC
+DVC Setup
 ```bash
 dvc remote add -d localremote ../local_remote
 dvc remote list
@@ -35,6 +35,14 @@ head .dvc/config
 
 dvc push --remote s3remote
 dvc get https://github.com/goldin2008/mlops_deploy_fastapi data/census.csv -o data_download/data.csv
+```
+
+DVC tracking data
+```bash
+dvc init
+dvc add data/data.csv
+git add data/data.csv.dvc data/.gitignore
+git ci -m 'Add new data'
 ```
 
 Push to Heroku
