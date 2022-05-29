@@ -29,11 +29,10 @@ dvc remote add -d localremote ../local_remote
 dvc remote list
 head .dvc/config
 
-dvc remote add -d s3remote s3://mlops-2022
-# dvc remote add -d storage s3://mlops-2022
+dvc remote add -d storage s3://mlops-2022
 head .dvc/config
 
-dvc push --remote s3remote
+dvc push --remote storage
 dvc get https://github.com/goldin2008/mlops_deploy_fastapi data/census.csv -o data_download/data.csv
 ```
 
