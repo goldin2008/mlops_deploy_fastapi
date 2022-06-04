@@ -1,7 +1,31 @@
 Working in a command line environment is recommended for ease of use with git and dvc. If on Windows, WSL1 or 2 is recommended.
 
-# Ref
+# References
+#### Data
 https://mti-lab.github.io/blog/2021/03/03/dvc.html
+
+#### Test
+https://realpython.com/python-testing/
+
+https://www.jetbrains.com/help/pycharm/performing-tests.html#RunTest
+
+https://realpython.com/python-cli-testing/
+
+#### Code
+https://realpython.com/python-code-quality/
+
+#### OOP
+https://realpython.com/python3-object-oriented-programming/
+
+#### Packaing
+https://docs.python.org/3/distutils/setupscript.html
+
+https://packaging.python.org/en/latest/tutorials/packaging-projects/
+
+#### Setup
+https://packaging.python.org/en/latest/tutorials/packaging-projects/#setup-py
+
+https://godatadriven.com/blog/a-practical-guide-to-using-setup-py/
 
 # Environment Set up
 * Download and install conda if you don’t have it already.
