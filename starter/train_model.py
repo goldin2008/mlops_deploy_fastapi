@@ -6,8 +6,8 @@ import yaml
 import os
 import pandas as pd
 from joblib import dump
-from ml.data import process_data
-from ml.model import train_model
+from .ml.data import process_data
+from .ml.model import train_model
 
 # with open('config.yml') as f:
 #     config = yaml.load(f)

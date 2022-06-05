@@ -26,11 +26,11 @@ def train_model(X_train, y_train):
         Trained machine learning model.
     """
     cv = StratifiedKFold(n_splits=5, shuffle=True, random_state=42)
-    model = RandomForestClassifier(n_estimators=10)
-    model.fit(X_train, y_train)
-    scores = cross_val_score(model, X_train, y_train, scoring='accuracy',
+    clf = RandomForestClassifier(n_estimators=10)
+    clf.fit(X_train, y_train)
+    scores = cross_val_score(clf, X_train, y_train, scoring='accuracy',
                              cv=cv, n_jobs=-1)
-    return model
+    return clf
 
 
 def compute_model_metrics(y, preds):
