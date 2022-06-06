@@ -102,33 +102,35 @@ def test_train_save_model():
         logging.error("Testing train_models: Model files not found")
         raise err
 
-def test_model_output_shape(data, model):
-    """
-    Test model predictions are of correct shape
-    Args:
-        sample_data (pd.DataFrame): Sample data to be tested
-    """
-    cat_features = [
-    "workclass",
-    "education",
-    "marital-status",
-    "occupation",
-    "relationship",
-    "race",
-    "sex",
-    "native-country",
-    ]
+# def test_model_output_shape(data, model):
+#     """
+#     Test model predictions are of correct shape
+#     Args:
+#         sample_data (pd.DataFrame): Sample data to be tested
+#     """
+#     cat_features = [
+#     "workclass",
+#     "education",
+#     "marital-status",
+#     "occupation",
+#     "relationship",
+#     "race",
+#     "sex",
+#     "native-country",
+#     ]
 
-    X_test, y_test, _, _ = d.process_data(
-        data, categorical_features=cat_features, label="salary", training=True)
+#     X_test, y_test, _, _ = d.process_data(
+#         data, categorical_features=cat_features, label="salary", training=True)
+#     prediction = inference(model, X)
+#     y_pred = lb.inverse_transform(prediction)[0]
 
-    assert X_train.shape[
-        1] == 14, f"Train data number of columns should be 14 not {X_train.shape[1]}"
-    assert X_test.shape[
-        1] == 14, f"Test data number of columns should be 14 not {X_test.shape[1]}"
-    assert y_train_pred.shape[0] == X_train.shape[
-        0], f"Predictions output shape {y_train_pred.shape[0]} is incorrect does not match input shape {X_train.shape[0]}"
-    assert y_test_pred.shape[0] == X_test.shape[
-        0], f"Predictions output shape {y_test_pred.shape[0]} is incorrect does not match input shape {X_test.shape[0]}"
+#     assert X_train.shape[
+#         1] == 14, f"Train data number of columns should be 14 not {X_train.shape[1]}"
+#     assert X_test.shape[
+#         1] == 14, f"Test data number of columns should be 14 not {X_test.shape[1]}"
+#     assert y_train_pred.shape[0] == X_train.shape[
+#         0], f"Predictions output shape {y_train_pred.shape[0]} is incorrect does not match input shape {X_train.shape[0]}"
+#     assert y_test_pred.shape[0] == X_test.shape[
+#         0], f"Predictions output shape {y_test_pred.shape[0]} is incorrect does not match input shape {X_test.shape[0]}"
 # if __name__ == '__main__':
 #     unittest.main()
