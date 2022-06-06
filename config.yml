@@ -16,9 +16,8 @@ data_processing:
   test_size: 0.2
   label: salary
   random_seed: 42
-model:
-  filepath: 'model/'
 models:
+  filepath: 'models/'
   random_seed: 42
   random_forest:
     output_filepath: models/random_forest_classifier.pkl

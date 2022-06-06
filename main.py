@@ -1,19 +1,18 @@
 # Put the code for your API here.
 import os
-# import yaml
+import yaml
 
 # Import Uvicorn & the necessary modules from FastAPI
 import uvicorn
 from fastapi import FastAPI, File, UploadFile, HTTPException
-
-# Import the PyCaret Regression module
-# import pycaret.regression as pycr
+from pydantic import BaseModel, Field
 
 # from schema import ModelInput
 from pandas import DataFrame
-# from starter.inferance_model import run_inference
 import joblib
 import starter.ml.data
+# Import the PyCaret Regression module
+# import pycaret.regression as pycr
 
 
 if "DYNO" in os.environ and os.path.isdir(".dvc"):
@@ -22,14 +21,40 @@ if "DYNO" in os.environ and os.path.isdir(".dvc"):
         exit("dvc pull failed")
     os.system("rm -r .dvc .apt/usr/lib/dvc")
 
-# with open('config.yml') as f:
-#     config = yaml.load(f)
+with open('config.yml') as f:
+    config = yaml.load(f)
 
-# output_model_path = os.path.join(config['model']['filepath'])
+output_model_path = os.path.join(config['models']['filepath'])
 
 # Initialize the FastAPI application
 app = FastAPI()
 
+cat_features = [
+"workclass",
+"education",
+"marital-status",
+"occupation",
+"relationship",
+"race",
+"sex",
+"native-country",
+]
+
+class CleanData(BaseModel):
+    age: int = Field(..., example=39)
+    workclass: str = Field(..., example="Private")
+    fnlgt: int = Field(..., example=12345)
+    education: str = Field(..., example="Masters")
+    education_num: int = Field(..., example=14)
+    marital_status: str = Field(..., example="Never-married")
+    occupation: str = Field(..., example="Exec-managerial")
+    relationship: str = Field(..., example="Not-in-family")
+    race: str = Field(..., example="Asian-Pac-Islander")
+    sex: str = Field(..., example="Male")
+    capital_gain: int = Field(..., example=10)
+    capital_loss: int = Field(..., example=10)
+    hours_per_week: int = Field(..., example=80)
+    native_country: str = Field(..., example="United-States")
 
 # # Create a class to store the deployed model & use it for prediction
 # class Model:
@@ -66,27 +91,15 @@ async def get_items():
 
 # Create the POST endpoint with path '/predict'
 @app.post("/predict")
-async def inference(input_data: ModelInput):
-    model = joblib.load("./model/trainedmodel.joblib")
-    encoder = joblib.load("./model/encoder.joblib")
-    lb = joblib.load("./model/lb.joblib")
-
-    cat_features = [
-    "workclass",
-    "education",
-    "marital-status",
-    "occupation",
-    "relationship",
-    "race",
-    "sex",
-    "native-country",
-    ]
+async def inference(input_data: CleanData):
+    model = joblib.load("./models/trainedmodel.joblib")
+    encoder = joblib.load("./models/encoder.joblib")
+    lb = joblib.load("./models/lb.joblib")
 
     input_df = DataFrame(data=input_data.values(), index=input_data.keys()).T
-    X, _, _, _ = starter.ml.data.process_data(
-                input_df,
-                categorical_features=cat_features,
-                encoder=encoder, lb=lb, training=False)
+    X, _, _, _ = starter.ml.data.process_data(input_df,
+                                              categorical_features=cat_features,
+                                              encoder=encoder, lb=lb, training=False)
     prediction = inference(model, X)
     y_pred = lb.inverse_transform(prediction)[0]
 
