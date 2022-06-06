@@ -3,6 +3,7 @@ botocore==1.26.4
 databricks-cli==0.16.6
 docker==5.0.3
 Flask==2.1.2
+fastapi==0.63.0
 gensim==3.8.3
 imbalanced-learn==0.7.0
 ipython-genutils==0.2.0
