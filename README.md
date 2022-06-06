@@ -1,3 +1,4 @@
+![CI](https://github.com/goldin2008/mlops_deploy_fastapi/actions/workflows/pylint.yml/badge.svg)
 Working in a command line environment is recommended for ease of use with git and dvc. If on Windows, WSL1 or 2 is recommended.
 
 # References
