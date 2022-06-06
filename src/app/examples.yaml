@@ -1,0 +1,79 @@
+features_info:
+  "age": "Age of the person - numerical - int"
+  "workclass": "MORE INFO NEEDED - categorical - str"
+  "fnlgt": "MORE INFO NEEDED - numerical - int"
+  "education": "Education level of the person - ordinal categorical - str"
+  "education_num": "Education level of the person - ordinal categorical - int"
+  "marital_status": "Marital status of the person - nominal categorical - str"
+  "occupation": "Occupation of the person - nominal categorical - str"
+  "relationship": "Relationship of the person - nominal categorical - str"
+  "race": "Race of the person - nominal categorical - str"
+  "sex": "Gender of the person - nominal categorical - str"
+  "capital_gain": "Capital gain of the person - numerical - int"
+  "capital_loss": "Capital loss of the person - numerical - int"
+  "hours_per_week": "Hours of work per week of the person - numerical - int"
+  "native_country": "Native country of the person - nominal categorical - str"
+
+post_examples:
+  "Class <=50k (Label 0)":
+    "summary": "An example of class <=50k"
+    "description": "A example that should predict a class of <=50k"
+    "value": 
+      "age": 39
+      "workclass": "state-gov"
+      "fnlgt": 77516
+      "education": "bachelors"
+      "education_num": 13
+      "marital_status": "never-married"
+      "occupation": "adm-clerical"
+      "relationship": "not-in-family"
+      "race": "white"
+      "sex": "male"
+      "capital_gain": 2174
+      "capital_loss": 0
+      "hours_per_week": 40
+      "native_country": "united-states"
+  "Class >50k (Label 1)":
+    "summary": "An example of class >50k"
+    "description": "A example that should predict a class of >50k"
+    "value": 
+      "age": 41
+      "workclass": "local-gov"
+      "fnlgt": 183224
+      "education": "masters"
+      "education_num": 14
+      "marital_status": "married-civ-spouse"
+      "occupation": "prof-specialty"
+      "relationship": "wife"
+      "race": "asian-pac-islander"
+      "sex": "female"
+      "capital_gain": 0
+      "capital_loss": 0
+      "hours_per_week": 40
+      "native_country": "taiwan"
+  "Missing sample": 
+    "summary": "An example of a sample with missing values"
+    "description": "An example for the models ability to handle missing values for certain features"
+    "value": 
+      "age": 81
+      "fnlgt": 120478
+      "education_num": 11
+      "capital_gain": 0
+      "capital_loss": 0
+      "hours_per_week": 1
+  "Error sample":
+    "summary": "An example of a sample that will cause an error"
+    "description": "A example that will cause an error with the model due to missing age and fnlgt variables"
+    "value":
+      "workclass": "local-gov"
+      "education": "assoc-voc"
+      "education_num": 11
+      "marital_status": "divorced"
+      "occupation": "prof-specialty"
+      "relationship": "unmarried"
+      "race": "white"
+      "sex": "female"
+      "capital_gain": 0
+      "capital_loss": 0
+      "hours_per_week": 1
+      "native_country": "taiwan"
