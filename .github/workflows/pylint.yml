@@ -23,6 +23,3 @@ jobs:
     - name: Lint with flake8
       run: |
         flake8 . --count --show-source --exit-zero --max-complexity=10 --max-line-length=127 --statistics
-    - name: Test with pytest # Final action which runs pytest. If any test fails, then this Action fails
-      run: |
-        pytest src/tests -vv
