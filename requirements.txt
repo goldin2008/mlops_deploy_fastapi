@@ -27,5 +27,4 @@ scikit-plot==0.3.7
 seaborn==0.11.2
 uvicorn==0.17.6
 dvc==2.8.2
-dvc[s3]==2.8.2
 great_expectations==0.13.39
