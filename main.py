@@ -56,7 +56,7 @@ class CleanData(BaseModel):
     hours_per_week: int = Field(..., example=80)
     native_country: str = Field(..., example="United-States")
 
-# # Create a class to store the deployed model & use it for prediction
+# Create a class to store the deployed model & use it for prediction
 # class Model:
 #     def __init__(self, modelname, bucketname):
 #         """
@@ -66,11 +66,11 @@ class CleanData(BaseModel):
 #         """
 #         # Load the deployed model from Amazon S3
 #         self.model = pycr.load_model(
-#             modelname, 
-#             platform = 'aws', 
+#             modelname,
+#             platform = 'aws',
 #             authentication = { 'bucket' : bucketname }
 #         )
-    
+
 #     def predict(self, data):
 #         """
 #         To use the loaded model to make predictions on the data
@@ -80,7 +80,7 @@ class CleanData(BaseModel):
 #         # (i.e. 'Label') after converting it to a list
 #         predictions = pycr.predict_model(self.model, data=data).Label.to_list()
 #         return predictions
-# # Load the model that you had deployed earlier on S3. 
+# # Load the model that you had deployed earlier on S3.
 # # Enter your respective bucket name in place of 'mlopsdvc170100035'
 # model = Model("lightgbm_deploy_1", "mlopsdvc170100035")
 

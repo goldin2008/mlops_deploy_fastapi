@@ -32,6 +32,10 @@ https://godatadriven.com/blog/a-practical-guide-to-using-setup-py/
     * Use the supplied requirements file to create a new environment, or
     * conda create -n [envname] "python=3.8" scikit-learn dvc pandas numpy pytest jupyter jupyterlab fastapi uvicorn -c conda-forge
     * Install git either through conda (“conda install git”) or through your CLI, e.g. sudo apt-get git.
+```bash
+pip3 freeze > requirements.txt  # Python3
+pip freeze > requirements.txt  # Python2
+```
 
 ```bash
 conda env create -f environment.yml
