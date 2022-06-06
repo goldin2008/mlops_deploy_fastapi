@@ -24,18 +24,8 @@ jobs:
       run: |
         flake8 . --count --show-source --exit-zero --max-complexity=10 --max-line-length=127 --statistics
     - name: Configure AWS Credentials
-      uses: aws-actions/configure-aws-credentials@v1
-      with:
-        aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
-        aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-        aws-region: eu-west-1
-        role-duration-seconds: 500
-        role-session-name: Github_Action
     - name: DVC install
-      uses: iterative/setup-dvc@v1
     - name: DVC pull
-      run: |
-        dvc pull 
     - name: Test with pytest # Final action which runs pytest. If any test fails, then this Action fails
       run: |
         pytest src/tests -vv
