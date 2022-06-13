@@ -71,3 +71,49 @@ def inference(model, X):
     """
     y_pred = model.predict(X)
     return y_pred
+
+
+def slices(model, cat, X, cat_features, encoder, lb):
+    """ Computes performance on model slices
+    Inputs
+    ------
+    model : ???
+        Trained machine learning model.
+    cat : str
+        category to be sliced
+    X : np.array
+        Data used for prediction.
+    encoder : sklearn.preprocessing._encoders.OneHotEncoder
+        Trained sklearn OneHotEncoder, for processing data.
+    lb : sklearn.preprocessing._label.LabelBinarizer
+        Trained sklearn LabelBinarizer, for processing data.
+    categorical_features: list[str]
+        List containing the names of the categorical features (default=[])
+    Returns
+    -------
+    No returns
+    """
+    with open("slice_output.txt", "w") as f:
+        f.write(cat)
+        f.write('\n')
+        for val in X[cat].unique():
+            X_slice = X[X[cat] == val]
+            X_test, y_test, encoder, lb = process_data(
+                X_slice, categorical_features=cat_features, label="salary", training=False, encoder = encoder, lb=lb
+                )
+            # print(X.shape)
+            # print(X_temp.shape)
+            y_pred = inference(model, X_test)
+            precision, recall, fbeta = compute_model_metrics(y_test, y_pred)
+            f.writelines("-------------------------------------------------")
+            f.write('\n')
+            f.write(val)
+            f.write('\n')
+            f.write('Precision: ' + str(precision))
+            f.write('\n')
+            f.write('Recall: ' + str(recall))
+            f.write('\n')
+            f.write('F-Beta Score: ' + str(fbeta))
+            f.write('\n')
+
+    return

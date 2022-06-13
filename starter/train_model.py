@@ -6,8 +6,8 @@ import yaml
 import os
 import pandas as pd
 from joblib import dump
-from .ml.data import process_data
-from .ml.model import train_model
+from ml.data import process_data
+from ml.model import train_model
 
 # with open('config.yml') as f:
 #     config = yaml.load(f)
@@ -16,7 +16,7 @@ from .ml.model import train_model
 def train_save_model():
     # Add code to load in the data.
     print(os.getcwd())
-    data = pd.read_csv(f"../data/census_clean.csv")
+    data = pd.read_csv(f"./data/census_clean.csv")
 
     # Optional enhancement, use K-fold cross validation instead of a train-test split.
     train, test = train_test_split(data, test_size=0.20)
@@ -36,12 +36,13 @@ def train_save_model():
     X_train, y_train, encoder, lb = process_data(
         train, categorical_features=cat_features, label="salary", training=True
     )
+    print('X_train: ', X_train.shape)
 
     # Train and save a model.
     model = train_model(X_train, y_train)
-    dump(model, f"../model/model.joblib")
-    dump(encoder, f"../model/encoder.joblib")
-    dump(lb, f"../model/lb.joblib")
+    dump(model, f"./models/model.joblib")
+    dump(encoder, f"./models/encoder.joblib")
+    dump(lb, f"./models/lb.joblib")
     return model
 
 if __name__ == "__main__":

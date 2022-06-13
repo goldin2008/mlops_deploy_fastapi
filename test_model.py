@@ -26,7 +26,7 @@ def data():
 
 @pytest.fixture
 def model():
-    model = joblib.load("./models/trainedmodel.joblib")
+    model = joblib.load("./models/model.joblib")
     return model
 
 def test_import_data(data):
