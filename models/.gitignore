@@ -1,3 +1,2 @@
-/encoder.joblib
-/model.joblib
-/lb.joblib
+/pipe_LogisticRegression
+/pipe_RandomForestClassifier

@@ -1,0 +1,4 @@
+Evaluation on train data
+Precision = 0.771, Recall = 0.849, F1 = 0.567
+Evaluation on test data
+Precision = 0.770, Recall = 0.845, F1 = 0.566

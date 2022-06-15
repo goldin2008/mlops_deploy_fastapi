@@ -1,0 +1,26 @@
+Model evaluation on sex slice of train data
+Category  Precision   Recall       F1
+    male   0.712623 0.918345 0.582201
+  female   0.730245 0.816078 0.660750
+
+Model evaluation on sex slice of train data
+Category  Precision   Recall       F1
+  female   0.663278 0.729050 0.608392
+    male   0.692203 0.892678 0.565259
+
+Model evaluation on race slice of train data
+          Category  Precision   Recall       F1
+             white   0.716106 0.906250 0.591915
+             black   0.679030 0.859206 0.561321
+asian-pac-islander   0.756000 0.891509 0.656250
+amer-indian-eskimo   0.677966 0.869565 0.555556
+             other   0.553191 0.866667 0.406250
+
+Model evaluation on race slice of train data
+          Category  Precision   Recall       F1
+asian-pac-islander   0.658683 0.859375 0.533981
+             black   0.636678 0.836364 0.513966
+             white   0.692876 0.870998 0.575238
+amer-indian-eskimo   0.606061 0.769231 0.500000
+             other   0.608696 0.700000 0.538462
+
