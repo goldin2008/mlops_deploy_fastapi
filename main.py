@@ -90,7 +90,7 @@ class CleanData(BaseModel):
 
 
 @app.get("/")
-async def get_items():
+async def greetings():
     return {"message": "Udacity MLOps Greetings!"}
 
 # Create the POST endpoint with path '/predict'
