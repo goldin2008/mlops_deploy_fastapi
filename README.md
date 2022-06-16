@@ -81,7 +81,12 @@ git ci -m 'Add new data'
 
 Push to Heroku
 
-https://code2care.org/howto/fix-command-not-found-brew-bash-zsh-on-macos-terminal
+> https://code2care.org/howto/fix-command-not-found-brew-bash-zsh-on-macos-terminal
+
+Run locally
+```python
+uvicorn main:app --reload
+```
 
 
 ## Repositories

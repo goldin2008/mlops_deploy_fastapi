@@ -4,7 +4,8 @@ App main file
 # Put the code for your API here.
 import os
 import sys
-import yaml
+# import yaml
+import pandas as pd
 
 # Import Uvicorn & the necessary modules from FastAPI
 import uvicorn
@@ -15,6 +16,7 @@ from pydantic import BaseModel, Field
 from pandas import DataFrame
 import joblib
 import starter.ml.data
+import starter.ml.model
 # Import the PyCaret Regression module
 # import pycaret.regression as pycr
 
@@ -25,10 +27,10 @@ if "DYNO" in os.environ and os.path.isdir(".dvc"):
         sys.exit("dvc pull failed")
     os.system("rm -r .dvc .apt/usr/lib/dvc")
 
-with open('config.yml') as f:
-    config = yaml.load(f)
+# with open('config.yml') as f:
+#     config = yaml.load(f)
 
-output_model_path = os.path.join(config['models']['filepath'])
+# output_model_path = os.path.join(config['models']['filepath'])
 
 # Initialize the FastAPI application
 app = FastAPI()
@@ -95,16 +97,20 @@ async def greetings():
 
 # Create the POST endpoint with path '/predict'
 @app.post("/predict")
-async def inference(input_data: CleanData):
-    model = joblib.load("./models/trainedmodel.joblib")
+async def predict(input_data: CleanData):
+    model = joblib.load("./models/model.joblib")
     encoder = joblib.load("./models/encoder.joblib")
     lb = joblib.load("./models/lb.joblib")
 
-    input_df = DataFrame(data=input_data.values(), index=input_data.keys()).T
+    # input_df = DataFrame(data=input_data.values(), index=input_data.keys()).T
+
+    input_df = pd.DataFrame([input_data.dict()])
+    input_df.rename(lambda x: x.replace("_", "-"), axis="columns", inplace=True)
+
     X, _, _, _ = starter.ml.data.process_data(input_df,
                                               categorical_features=cat_features,
                                               encoder=encoder, lb=lb, training=False)
-    prediction = inference(model, X)
+    prediction = starter.ml.model.inference(model, X)
     y_pred = lb.inverse_transform(prediction)[0]
 
     return {"prediction": y_pred}

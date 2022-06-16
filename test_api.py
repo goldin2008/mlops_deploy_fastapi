@@ -5,7 +5,7 @@ import pytest
 from http import HTTPStatus
 from fastapi.testclient import TestClient
 
-from app.api import app
+from main import app
 
 
 client = TestClient(app)
@@ -16,44 +16,36 @@ def test_greetings():
     Tests GET greetings function
     """
     response = client.get('/')
+    # print(response)
+    # print(response.status_code)
+    # print(response.json())
     assert response.status_code == HTTPStatus.OK
     assert response.request.method == "GET"
-    assert response.json() == 'Udacity MLOps Greetings!'
+    assert response.json() == {'message': 'Udacity MLOps Greetings!'}
 
-
-@pytest.mark.parametrize('test_input, expected', [
-    ('age', "Age of the person - numerical - int"),
-    ('fnlgt', 'MORE INFO NEEDED - numerical - int'),
-    ('race', 'Race of the person - nominal categorical - str')
-])
-def test_feature_info_status(test_input: str, expected: str):
-    """
-    Tests GET request and status code for feature_info function
-
-    Args:
-        test_input (str): example input
-        expected (str): example output
-    """
-    response = client.get(f'/feature_info/{test_input}')
-    assert response.status_code == HTTPStatus.OK
-    assert response.request.method == "GET"
-
-
-@pytest.mark.parametrize('test_input, expected', [
-    ('age', "Age of the person - numerical - int"),
-    ('fnlgt', 'MORE INFO NEEDED - numerical - int'),
-    ('race', 'Race of the person - nominal categorical - str')
-])
-def test_feature_info_response(test_input: str, expected: str):
-    """
-    Tests GET request response for feature_info function
-
-    Args:
-        test_input (str): example input
-        expected (str): example output
-    """
-    response = client.get(f'/feature_info/{test_input}')
-    assert response.json() == expected
+def test_predict_gr50k():
+    r = client.post("/predict", json={
+        "age": 39,
+        "workclass": "Private",
+        "fnlgt": 12345,
+        "education": "Masters",
+        "education_num": 14,
+        "marital_status": "Never-married",
+        "occupation": "Exec-managerial",
+        "relationship": "Not-in-family",
+        "race": "Asian-Pac-Islander",
+        "sex": "Male",
+        "capital_gain": 10,
+        "capital_loss": 10,
+        "hours_per_week": 80,
+        "native_country": "United-States"
+    })
+    # print(r)
+    # print(r.status_code)
+    # print(r.json())
+    # print(r.request.method)
+    assert r.status_code == 200
+    assert r.json() == {"prediction": ">50K"}
 
 
 def test_predict_status():
@@ -61,35 +53,28 @@ def test_predict_status():
     Tests POST predict function status
     """
     data = {
-        'age': 38,
-        'fnlgt': 15,
-        'education_num': 1,
-        'capital_gain': 0,
-        'capital_loss': 0,
-        'hours_per_week': 5
+        "age": 31,
+        "workclass": "Private",
+        "fnlgt": 12345,
+        "education": "Masters",
+        "education_num": 14,
+        "marital_status": "Never-married",
+        "occupation": "Exec-managerial",
+        "relationship": "Not-in-family",
+        "race": "Asian-Pac-Islander",
+        "sex": "Male",
+        "capital_gain": 10,
+        "capital_loss": 10,
+        "hours_per_week": 80,
+        "native_country": "United-States"
     }
-    response = client.post("/predict/", json=data)
+    response = client.post("/predict", json=data)
+    # print(r)
+    # print(r.status_code)
+    # print(r.request.method)
+    assert response.status_code == 200
     assert response.status_code == HTTPStatus.OK
     assert response.request.method == "POST"
-
-
-def test_predict_response():
-    """
-    Tests POST request response for predict function when successful against a sample
-    """
-    data = {
-        'age': 38,
-        'fnlgt': 15,
-        'education_num': 1,
-        'capital_gain': 0,
-        'capital_loss': 0,
-        'hours_per_week': 5
-    }
-    response = client.post("/predict/", json=data)
-    assert response.json()['label'] == 0 or response.json()['label'] == 1
-    assert response.json()['prob'] >= 0 and response.json()['label'] <= 1
-    assert response.json()['salary'] == '>50k' or response.json()[
-        'salary'] == '<=50k'
 
 
 def test_missing_feature_predict():
@@ -97,9 +82,25 @@ def test_missing_feature_predict():
     Tests POST predict function when failed due to missing features
     """
     data = {
-        "age": 0
+        "age": 0,
+        'fnlgt': 15,
+        'education_num': 1,
+        'capital_gain': 0,
+        'capital_loss': 0,
+        'hours_per_week': 5
     }
-    response = client.post("/predict/", json=data)
+    response = client.post("/predict", json=data)
+    # print(response)
+    # print(response.status_code)
+    # print(response.request.method)
+    # print(response.json())
+    # print(HTTPStatus.UNPROCESSABLE_ENTITY)
     assert response.status_code == HTTPStatus.UNPROCESSABLE_ENTITY
     assert response.request.method == "POST"
     assert response.json()["detail"][0]["type"] == "value_error.missing"
+
+if __name__ == "__main__":
+    test_greetings()
+    test_predict_gr50k()
+    test_predict_status()
+    test_missing_feature_predict()
