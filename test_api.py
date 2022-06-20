@@ -48,6 +48,31 @@ def test_predict_gr50k():
     assert r.json() == {"prediction": ">50K"}
 
 
+def test_predict_le50k():
+    r = client.post("/predict", json={
+        "age": 53,
+        "workclass": "Private",
+        "fnlgt": 234721,
+        "education": "11th",
+        "education_num": 7,
+        "marital_status": "Married-civ-spouse",
+        "occupation": "Handlers-cleaners",
+        "relationship": "Husband",
+        "race": "Black",
+        "sex": "Male",
+        "capital_gain": 0,
+        "capital_loss": 0,
+        "hours_per_week": 40,
+        "native_country": "United-States"
+    })
+    # print(r)
+    # print(r.status_code)
+    # print(r.json())
+    # print(r.request.method)
+    assert r.status_code == 200
+    assert r.json() == {"prediction": "<=50K"}
+
+
 def test_predict_status():
     """
     Tests POST predict function status
@@ -102,5 +127,6 @@ def test_missing_feature_predict():
 if __name__ == "__main__":
     test_greetings()
     test_predict_gr50k()
+    test_predict_le50k()
     test_predict_status()
     test_missing_feature_predict()
