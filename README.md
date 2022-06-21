@@ -30,6 +30,24 @@ https://packaging.python.org/en/latest/tutorials/packaging-projects/#setup-py
 
 https://godatadriven.com/blog/a-practical-guide-to-using-setup-py/
 
+#### projects
+> https://github.com/ibrahim-sheriff/Deploying-a-ML-Model-on-Heroku-with-FastAPI
+> https://github.com/TimothyLMoore/CensusData
+> https://github.com/nicolaswsp/Deploying-a-Machine-Learning-Model-on-Heroku-with-FastAPI
+> https://github.com/soni-ratnesh/Deploying-a-Machine-Learning-Model-on-Heroku-with-FastAPI
+> https://github.com/VineetKT/ML_fastapi_on_Heroku_CI-CD
+> https://github.com/lex-mw-lab/deploy-heroku-fastapi
+> https://github.com/robsmith155/udacity-nanodegree-mldevops-project3 
+> https://github.com/udacity/nd0821-c3-starter-code
+> https://github.com/1ayham1/ML_DevOps_DynamicRiskAssessmentSystem
+
+#### testing
+```bash
+flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics
+# exit-zero treats all errors as warnings. The GitHub editor is 127 chars wide
+flake8 . --count --exit-zero --max-complexity=15 --max-line-length=127 --ignore=E501,W503 --statistics
+```
+
 # Environment Set up
 * Download and install conda if you don’t have it already.
     * Use the supplied requirements file to create a new environment, or
